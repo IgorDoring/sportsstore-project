@@ -13,8 +13,9 @@ const logging = config.orm.logging
     : { logging: false }
 
 export const createSessions = (app: Express) => {
-    const sequelize = new Sequelize({
+    const sequelize = new Sequelize(process.env.DATABASE_URL as string, {
         ...config.orm.settings,
+        dialectOptions: { ssl: { rejectUnauthorized: false } },
         ...logging
     })
 

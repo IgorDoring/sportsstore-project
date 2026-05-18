@@ -4,9 +4,6 @@ import { initializeModels, CategoryModel, ProductModel, SupplierModel } from './
 import { readFileSync } from 'fs'
 
 const config = getConfig('catalog:orm_repo')
-const dbPassword = getSecret('DBPASSWORD')
-const dbUser = getSecret('DBUSER')
-const dbHost = getSecret('DBHOST')
 
 const logging = config.logging
     ? { logging: console.log, logQueryParameters: true }
@@ -15,7 +12,11 @@ const logging = config.logging
 export class BaseRepo {
     sequelize: Sequelize
     constructor() {
-        this.sequelize = new Sequelize(process.env.DATABASE_URL as string, { ...config.settings, password: dbPassword, username: dbUser, host: dbHost, ...logging })
+        this.sequelize = new Sequelize(process.env.DATABASE_URL as string, {
+            ...config.settings,
+            dialectOptions: { ssl: { rejectUnauthorized: false } },
+            ...logging
+        })
         this.initModelsAndDatabase()
     }
     async initModelsAndDatabase(): Promise<void> {

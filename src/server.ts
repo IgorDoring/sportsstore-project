@@ -9,7 +9,8 @@ import { createSessions } from './sessions'
 import { createAuthentication } from './authentication'
 import httpProxy from 'http-proxy'
 
-const port = getConfig('http:port', 5000)
+// server.ts
+const port = process.env.PORT ?? getConfig('http:port', 5000)
 
 const expressApp: Express = express()
 
