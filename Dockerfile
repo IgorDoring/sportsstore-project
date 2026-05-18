@@ -12,7 +12,7 @@ COPY package.json /usr/src/sportsstore/
 WORKDIR /usr/src/sportsstore
 
 RUN npm install --omit=dev
-RUN NPX tsc
+RUN npx tsc
 
 ENV NODE_ENV=production
 
