@@ -14,8 +14,9 @@ const logging = config.orm.logging
     ? { logging: console.log, logQueryParameters: true }
     : { logging: false };
 const createSessions = (app) => {
-    const sequelize = new sequelize_1.Sequelize({
+    const sequelize = new sequelize_1.Sequelize(process.env.DATABASE_URL, {
         ...config.orm.settings,
+        dialectOptions: { ssl: { rejectUnauthorized: false } },
         ...logging
     });
     const store = new ((0, connect_session_sequelize_1.default)(express_session_1.default.Store))({

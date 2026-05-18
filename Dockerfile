@@ -12,7 +12,7 @@ COPY package.json /usr/src/sportsstore/
 WORKDIR /usr/src/sportsstore
 
 RUN npm install --omit=dev
-RUN npm install wait-for-it.sh@1.0.0
+RUN NPX tsc
 
 ENV NODE_ENV=production
 

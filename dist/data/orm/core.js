@@ -12,7 +12,11 @@ const logging = config.logging
 class BaseRepo {
     sequelize;
     constructor() {
-        this.sequelize = new sequelize_1.Sequelize({ ...config.settings, ...logging });
+        this.sequelize = new sequelize_1.Sequelize(process.env.DATABASE_URL, {
+            ...config.settings,
+            dialectOptions: { ssl: { rejectUnauthorized: false } },
+            ...logging
+        });
         this.initModelsAndDatabase();
     }
     async initModelsAndDatabase() {
