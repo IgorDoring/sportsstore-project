@@ -3,10 +3,7 @@
         "orm_repo": {
             "reset_db": false,
             "settings": {
-                "dialect": "postgres",
-                "host": "postgres",
-                "port": "5432",
-                "username": "postgres"
+                "dialect": "postgres"
             }
         }
     },
@@ -14,10 +11,7 @@
         "reset_db": false,
         "orm": {
             "settings": {
-                "dialect": "postgres",
-                "host": "postgres",
-                "port": "5432",
-                "username": "postgres"
+                "dialect": "postgres"
             }
         }
     },
