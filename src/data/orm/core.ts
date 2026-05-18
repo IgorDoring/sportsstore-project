@@ -15,7 +15,7 @@ const logging = config.logging
 export class BaseRepo {
     sequelize: Sequelize
     constructor() {
-        this.sequelize = new Sequelize({ ...config.settings, password: dbPassword, username: dbUser, host: dbHost, ...logging })
+        this.sequelize = new Sequelize(process.env.DATABASE_URL as string, { ...config.settings, password: dbPassword, username: dbUser, host: dbHost, ...logging })
         this.initModelsAndDatabase()
     }
     async initModelsAndDatabase(): Promise<void> {
