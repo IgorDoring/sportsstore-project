@@ -18,4 +18,4 @@ ENV NODE_ENV=production
 
 EXPOSE 5000
 
-ENTRYPOINT npx wait-for-it postgres:5432 && node dist/server.js
+CMD ["node", "dist/server.js"]
