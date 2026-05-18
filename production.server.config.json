@@ -17,12 +17,12 @@
     },
     "auth": {
         "openauth": {
-            "redirectionUrl": "https://localhost/signin-google"
+            "redirectionUrl": "https://sportsstore-project-production.up.railway.app/signin-google"
         }
     },
     "admin": {
         "openauth": {
-            "redirectionUrl": "https://localhost/auth-signin-google"
+            "redirectionUrl": "https://sportsstore-project-production.up.railway.app/auth-signin-google"
         }
     }
 }
